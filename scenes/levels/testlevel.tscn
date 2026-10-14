@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bsylkkj5w0ejo"]
+
+[ext_resource type="PackedScene" uid="uid://8s47lvpicatr" path="res://scenes/environment/testplat.tscn" id="1_jiwm1"]
+[ext_resource type="PackedScene" uid="uid://csqushqsd1y6w" path="res://scenes/environment/semi_platform.tscn" id="2_6kl7x"]
+[ext_resource type="PackedScene" uid="uid://dg3hr2ll2cfnu" path="res://scenes/player/player.tscn" id="3_7ixgg"]
+
+[node name="TestLevel" type="Node2D" unique_id=140895630]
+
+[node name="StaticBody2D" parent="." unique_id=1481288224 instance=ExtResource("1_jiwm1")]
+position = Vector2(68, 540)
+
+[node name="StaticBody2D2" parent="." unique_id=1323507594 instance=ExtResource("1_jiwm1")]
+position = Vector2(584, 390)
+
+[node name="Semi-Platform" parent="." unique_id=1556062245 instance=ExtResource("2_6kl7x")]
+position = Vector2(100, 331)
+
+[node name="Semi-Platform2" parent="." unique_id=678302964 instance=ExtResource("2_6kl7x")]
+position = Vector2(639, 144)
+
+[node name="Player" parent="." unique_id=284441731 instance=ExtResource("3_7ixgg")]
+position = Vector2(307, 57)
+
+[connection signal="body_entered" from="Semi-Platform" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform" to="Player" method="_on_semi_platform_body_exited"]
+[connection signal="body_entered" from="Semi-Platform2" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform2" to="Player" method="_on_semi_platform_body_exited"]

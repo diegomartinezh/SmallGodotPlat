@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://csqushqsd1y6w"]
+
+[ext_resource type="Texture2D" uid="uid://ddwg0h2onhmjq" path="res://icon.svg" id="1_m5gxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5gxl"]
+size = Vector2(293, 9.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty0te"]
+size = Vector2(292, 2.5)
+
+[node name="Semi-Platform" type="Area2D" unique_id=678302964]
+collision_layer = 8
+
+[node name="Trigger" type="CollisionShape2D" parent="." unique_id=1945696084]
+visible = false
+position = Vector2(140, -103.9375)
+shape = SubResource("RectangleShape2D_m5gxl")
+
+[node name="StandPlace" type="StaticBody2D" parent="." unique_id=731775166]
+collision_layer = 4
+
+[node name="Semi-Solid" type="CollisionShape2D" parent="StandPlace" unique_id=1073315852]
+position = Vector2(139, -8.25)
+shape = SubResource("RectangleShape2D_ty0te")
+
+[node name="Sprite2D" type="Sprite2D" parent="StandPlace" unique_id=898880186]
+position = Vector2(138, 0.5)
+scale = Vector2(2.265625, 0.1640625)
+texture = ExtResource("1_m5gxl")
+flip_v = true
