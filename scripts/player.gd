@@ -12,8 +12,8 @@ var jumping:bool = false
 var jumpmem:bool = false
 
 
-func _movement() -> void:
-	var tru_grav:int = gravity * 3
+func _movement(delta) -> void:
+	var tru_grav:int = gravity * 100
 	
 	#Horizontal movement
 	if (Input.is_action_pressed("left")):
@@ -28,11 +28,11 @@ func _movement() -> void:
 	#vertical movement
 	if (Input.is_action_just_pressed("up")):
 		if (is_on_floor()):
-			direction.y = (-1 * jump_power * 100)
+			direction.y = (-1 * jump_power * 75)
 			jumping = true
 	if (Input.is_action_just_released("up") || is_on_ceiling()):
-		if (!is_on_floor() && direction.y < 100):
-			direction.y = 100
+		if (!is_on_floor() && direction.y < -100):
+			direction.y = -100
 			
 	#fastfall
 	if (Input.is_action_just_pressed("down")):
@@ -42,11 +42,11 @@ func _movement() -> void:
 			set_collision_mask_value(3, false)
 		
 			
-	#gravity
+	#gravity acceleration
 	if(!is_on_floor()):
-		direction.y += tru_grav
+		direction.y += tru_grav * delta
 		jumpmem = true
-	#reset gravity acceleration
+	#reset gravity acceleration if on floor
 	elif(is_on_floor() && !jumping):
 		direction.y = 1
 	#know when jumping and landing
@@ -69,7 +69,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_movement()
+	_movement(delta)
 
 func _on_semi_platform_body_entered(body: Node2D) -> void:
 	set_collision_mask_value(3, true)
