@@ -3,17 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://ddwg0h2onhmjq" path="res://icon.svg" id="1_a2w47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty0te"]
-size = Vector2(670, 67)
+size = Vector2(1657, 67)
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1481288224]
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1368388021]
-position = Vector2(336, 34)
+position = Vector2(829.5, 34)
 shape = SubResource("RectangleShape2D_ty0te")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1738816697]
-position = Vector2(335, 32.5)
-scale = Vector2(5.25, 0.5390625)
+position = Vector2(829.99994, 32.5)
+scale = Vector2(12.984374, 0.5390625)
 texture = ExtResource("1_a2w47")

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cx7tpjo7k0n6g"]
+
+[ext_resource type="Texture2D" uid="uid://eh2mm6yawuia" path="res://imgs/GmOvrBk.png" id="1_2uhlj"]
+[ext_resource type="Script" uid="uid://bqjny5gm24se8" path="res://scenes/player/game_over.gd" id="1_m2si0"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=14007286]
+script = ExtResource("1_m2si0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=95084679]
+position = Vector2(962.5, 546)
+scale = Vector2(4.00616, 5.0044837)
+texture = ExtResource("1_2uhlj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2036026995]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2040568060]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Game Over" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1887633878]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 150
+text = "Game Over"
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1220848279]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 75
+text = "Time Survived: "
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1168700534]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 75
+text = "Points:
+"

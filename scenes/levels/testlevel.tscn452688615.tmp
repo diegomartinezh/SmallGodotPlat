@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://bsylkkj5w0ejo"]
+
+[ext_resource type="PackedScene" uid="uid://8s47lvpicatr" path="res://scenes/environment/testplat.tscn" id="1_jiwm1"]
+[ext_resource type="Script" uid="uid://2rjy5mc741ri" path="res://scenes/levels/testlevel.gd" id="1_r1rxo"]
+[ext_resource type="PackedScene" uid="uid://csqushqsd1y6w" path="res://scenes/environment/semi_platform.tscn" id="2_6kl7x"]
+[ext_resource type="PackedScene" uid="uid://dg3hr2ll2cfnu" path="res://scenes/player/player.tscn" id="3_7ixgg"]
+[ext_resource type="Texture2D" uid="uid://b2hc5l8vjx2u5" path="res://imgs/back.png" id="6_ixee3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty0te"]
+size = Vector2(2630.875, 83.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1rxo"]
+size = Vector2(106.25, 1607.3125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixee3"]
+size = Vector2(111, 1591)
+
+[node name="TestLevel" type="Node2D" unique_id=140895630]
+script = ExtResource("1_r1rxo")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1923629458]
+position = Vector2(964.00006, 544)
+scale = Vector2(1.9056046, 1.4390563)
+texture = ExtResource("6_ixee3")
+
+[node name="DeathPlane" type="Area2D" parent="." unique_id=375649214]
+position = Vector2(10, 3)
+collision_layer = 32
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=300219263]
+position = Vector2(919.5, 1224)
+shape = SubResource("RectangleShape2D_ty0te")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathPlane" unique_id=342207081]
+position = Vector2(2225.5, 476)
+shape = SubResource("RectangleShape2D_r1rxo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathPlane" unique_id=1400636494]
+position = Vector2(925.0625, -290)
+shape = SubResource("RectangleShape2D_ty0te")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathPlane" unique_id=7100707]
+position = Vector2(-339, 466.5)
+shape = SubResource("RectangleShape2D_ixee3")
+
+[node name="StaticBody2D" parent="." unique_id=1481288224 instance=ExtResource("1_jiwm1")]
+position = Vector2(138, 899)
+
+[node name="Semi-Platform" parent="." unique_id=1556062245 instance=ExtResource("2_6kl7x")]
+position = Vector2(154, 699)
+
+[node name="Semi-Platform2" parent="." unique_id=678302964 instance=ExtResource("2_6kl7x")]
+position = Vector2(1396, 698)
+
+[node name="Semi-Platform3" parent="." unique_id=326544440 instance=ExtResource("2_6kl7x")]
+position = Vector2(770, 699)
+
+[node name="Semi-Platform4" parent="." unique_id=463107877 instance=ExtResource("2_6kl7x")]
+position = Vector2(1086, 439)
+
+[node name="Semi-Platform5" parent="." unique_id=1028217847 instance=ExtResource("2_6kl7x")]
+position = Vector2(450, 435)
+
+[node name="Player" parent="." unique_id=284441731 instance=ExtResource("3_7ixgg")]
+position = Vector2(317, 60)
+collision_mask = 114
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=988779520]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1581285766]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1325400178]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Difficulty" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1393713092]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Difficulty: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1405889904]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="Points" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2089842934]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Points:"
+
+[node name="Time" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=322146745]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Time Survived: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=732412006]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer2" unique_id=1302255842]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="PointsTimer" type="Timer" parent="." unique_id=1719737097]
+wait_time = 3.0
+
+[node name="DifficultyT" type="Timer" parent="." unique_id=2143575574]
+
+[node name="ProjectileT" type="Timer" parent="." unique_id=1993509133]
+
+[connection signal="body_entered" from="DeathPlane" to="Player" method="_on_death_plane_body_entered"]
+[connection signal="body_entered" from="Semi-Platform" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform" to="Player" method="_on_semi_platform_body_exited"]
+[connection signal="body_entered" from="Semi-Platform2" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform2" to="Player" method="_on_semi_platform_body_exited"]
+[connection signal="body_entered" from="Semi-Platform3" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform3" to="Player" method="_on_semi_platform_body_exited"]
+[connection signal="body_entered" from="Semi-Platform4" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform4" to="Player" method="_on_semi_platform_body_exited"]
+[connection signal="body_entered" from="Semi-Platform5" to="Player" method="_on_semi_platform_body_entered"]
+[connection signal="body_exited" from="Semi-Platform5" to="Player" method="_on_semi_platform_body_exited"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="point" from="Player" to="." method="_on_player_point"]
+[connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]
+[connection signal="timeout" from="DifficultyT" to="." method="_on_difficulty_t_timeout"]
+[connection signal="timeout" from="ProjectileT" to="." method="_on_projectile_t_timeout"]

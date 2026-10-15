@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bvvaokkoudq1o"]
+
+[ext_resource type="Texture2D" uid="uid://di5cm4jfg7bxs" path="res://imgs/point.png" id="1_85utb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ty0te"]
+radius = 36.0
+
+[node name="Point" type="Area2D" unique_id=507610376]
+collision_layer = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1331389712]
+position = Vector2(40, 35)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("1_85utb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2033789592]
+position = Vector2(40, 35)
+shape = SubResource("CircleShape2D_ty0te")

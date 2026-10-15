@@ -11,6 +11,10 @@ var facing: bool = 1
 var jumping:bool = false
 var jumpmem:bool = false
 
+@export var health:int = 3
+
+signal hit(health:int, source:Area2D)
+signal point(path: Area2D)
 
 func _movement(delta) -> void:
 	var tru_grav:int = gravity * 100
@@ -37,7 +41,7 @@ func _movement(delta) -> void:
 	#fastfall
 	if (Input.is_action_just_pressed("down")):
 		if (!is_on_floor()):
-			direction.y = 2000
+			direction.y = 1000
 		elif(is_on_floor()):
 			set_collision_mask_value(3, false)
 		
@@ -60,16 +64,6 @@ func _movement(delta) -> void:
 	
 	velocity = direction
 	move_and_slide()
-	
-# Called when the node enters the scene tree for the first time.
-# See if one can pass values, like player direction when entering scene
-func _ready() -> void:
-	$Sprite2D.flip_h = true
-	facing = 1
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	_movement(delta)
 
 func _on_semi_platform_body_entered(body: Node2D) -> void:
 	set_collision_mask_value(3, true)
@@ -77,3 +71,15 @@ func _on_semi_platform_body_entered(body: Node2D) -> void:
 
 func _on_semi_platform_body_exited(body: Node2D) -> void:
 	set_collision_mask_value(3, false)
+	
+# Called when the node enters the scene tree for the first time.
+# See if one can pass values, like player direction when entering scene
+func _ready() -> void:
+	$Sprite2D.flip_h = true
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	_movement(delta)
+
+func _on_death_plane_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
