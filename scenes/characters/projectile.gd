@@ -3,7 +3,7 @@ extends Area2D
 var direction := Vector2()
 var speed:int = randi_range(5, 15)
 
-# Called when the node enters the scene tree for the first time.
+# When created, picks one of three different borders to fly from
 func _ready() -> void:
 	var start = randi_range(1, 3)
 	
