@@ -8,7 +8,7 @@ var point_scene: PackedScene = load("res://scenes/characters/point.tscn")
 @export var diftime:int = 10
 var dtime = diftime
 @export var difficulty:int = 1
-static var healthimg = load("res://icon.svg")
+static var healthimg = load("res://imgs/testbird.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

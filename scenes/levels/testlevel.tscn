@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://8s47lvpicatr" path="res://scenes/environment/testplat.tscn" id="1_jiwm1"]
 [ext_resource type="Script" uid="uid://2rjy5mc741ri" path="res://scenes/levels/testlevel.gd" id="1_r1rxo"]
 [ext_resource type="PackedScene" uid="uid://csqushqsd1y6w" path="res://scenes/environment/semi_platform.tscn" id="2_6kl7x"]
+[ext_resource type="Texture2D" uid="uid://dfy727rgt2tmd" path="res://imgs/background.png" id="2_r1rxo"]
 [ext_resource type="PackedScene" uid="uid://dg3hr2ll2cfnu" path="res://scenes/player/player.tscn" id="3_7ixgg"]
-[ext_resource type="Texture2D" uid="uid://b2hc5l8vjx2u5" path="res://imgs/back.png" id="6_ixee3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty0te"]
 size = Vector2(2630.875, 83.25)
@@ -19,9 +19,9 @@ size = Vector2(111, 1591)
 script = ExtResource("1_r1rxo")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1923629458]
-position = Vector2(964.00006, 544)
-scale = Vector2(1.9056046, 1.4390563)
-texture = ExtResource("6_ixee3")
+position = Vector2(958.99994, 544.5)
+scale = Vector2(60.937496, 35.031254)
+texture = ExtResource("2_r1rxo")
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=375649214]
 position = Vector2(10, 3)
@@ -126,6 +126,9 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 300)
+offset_transform_scale = Vector2(0.15, 0.15)
 
 [node name="PointsTimer" type="Timer" parent="." unique_id=1719737097]
 wait_time = 3.0
